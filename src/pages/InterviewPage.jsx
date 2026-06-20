@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../utils/supabase.js'
 import { useAuth } from '../contexts/AuthContext.jsx'
-import { generateQuestions, evaluateAnswer } from '../utils/groq.js'
+import { generateQuestions, evaluateAnswer } from '../utils/gemini.js'
 import { Mic, MicOff, Volume2, SkipForward, ChevronRight, AlertCircle, Clock } from 'lucide-react'
 import './InterviewPage.css'
 
