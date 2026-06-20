@@ -1,0 +1,66 @@
+.onb-page {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(160deg, var(--primary-light) 0%, var(--bg) 60%);
+}
+.onb-card { width: 100%; max-width: 620px; }
+.onb-steps {
+  display: flex; gap: 0; margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border); padding-bottom: 1.25rem;
+}
+.onb-step {
+  display: flex; align-items: center; gap: 8px; flex: 1;
+  font-size: 12px; color: var(--text3); font-weight: 500;
+}
+.onb-step-dot {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--surface2); border: 1.5px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--text3);
+  flex-shrink: 0;
+}
+.onb-step.active .onb-step-dot { background: var(--primary); color: #fff; border-color: var(--primary); }
+.onb-step.active { color: var(--primary); }
+.onb-step.done .onb-step-dot { background: var(--success); color: #fff; border-color: var(--success); }
+
+.onb-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.onb-sub { font-size: 14px; color: var(--text2); margin-bottom: 1.5rem; }
+
+.onb-role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.onb-role-btn {
+  padding: 1rem 0.75rem; border: 1.5px solid var(--border);
+  border-radius: var(--radius-md); background: var(--surface);
+  cursor: pointer; transition: all 0.15s; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.onb-role-btn:hover { border-color: var(--primary); background: var(--primary-xlight); transform: translateY(-2px); }
+.onb-role-btn.selected { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 0 0 3px rgba(91,79,207,0.13); }
+.onb-role-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--primary); }
+.onb-role-label { font-size: 12px; font-weight: 600; color: var(--text); }
+.onb-role-desc  { font-size: 11px; color: var(--text2); line-height: 1.4; }
+
+.onb-level-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+.onb-level-btn {
+  padding: 1rem 1.25rem; border: 1.5px solid var(--border);
+  border-radius: var(--radius-md); background: var(--surface);
+  cursor: pointer; transition: all 0.15s; text-align: left;
+}
+.onb-level-btn:hover { border-color: var(--primary); background: var(--primary-xlight); }
+.onb-level-btn.selected { border-color: var(--primary); background: var(--primary-light); }
+.onb-level-name { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+.onb-level-desc { font-size: 13px; color: var(--text2); }
+
+.resume-drop {
+  border: 2px dashed var(--border2); border-radius: var(--radius-md);
+  padding: 2.5rem; text-align: center; cursor: pointer; transition: all 0.15s;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.resume-drop:hover { border-color: var(--primary); background: var(--primary-xlight); }
+.resume-drop p { font-size: 14px; font-weight: 500; }
+.resume-drop span { font-size: 12px; color: var(--text3); }
+.resume-uploaded {
+  display: flex; align-items: center; gap: 10px; padding: 12px 14px;
+  border: 1px solid var(--border2); border-radius: var(--radius-sm);
+  background: var(--success-bg); font-size: 14px; font-weight: 500; color: var(--success);
+}

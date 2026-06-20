@@ -1,0 +1,58 @@
+.setup-hdr { margin-bottom: 1.5rem; }
+.setup-hdr h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.4px; }
+.setup-hdr p  { font-size: 14px; color: var(--text2); }
+.setup-card   { margin-bottom: 1rem; }
+
+.role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+.role-btn {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 1rem 0.5rem; gap: 6px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-md);
+  background: var(--surface); cursor: pointer; transition: all 0.15s;
+}
+.role-btn:hover   { border-color: var(--primary); background: var(--primary-xlight); transform: translateY(-2px); }
+.role-btn.selected { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 0 0 3px rgba(91,79,207,0.12); }
+.role-btn-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--primary); }
+.role-btn-name { font-size: 12px; font-weight: 600; color: var(--text); }
+.role-btn-desc { font-size: 11px; color: var(--text2); line-height: 1.4; }
+
+.mode-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.mode-btn {
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding: 12px 14px; gap: 4px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-md);
+  background: var(--surface); cursor: pointer; transition: all 0.15s; text-align: left;
+}
+.mode-btn:hover   { border-color: var(--primary); background: var(--primary-xlight); }
+.mode-btn.selected { border-color: var(--primary); background: var(--primary-light); }
+.mode-icon { color: var(--primary); }
+.mode-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.mode-desc { font-size: 12px; color: var(--text2); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media (max-width: 540px) { .two-col { grid-template-columns: 1fr; } }
+
+.pill-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill {
+  padding: 7px 16px; border: 1.5px solid var(--border); border-radius: 20px;
+  font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s;
+  background: var(--surface); color: var(--text);
+}
+.pill:hover   { border-color: var(--primary); color: var(--primary); }
+.pill.selected { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
+
+.voice-card {}
+.voice-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.voice-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 7px; margin-bottom: 4px; }
+.voice-desc  { font-size: 13px; color: var(--text2); line-height: 1.6; }
+.voice-toggle {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 10px 14px; border: 1.5px solid var(--border2); border-radius: var(--radius-md);
+  background: var(--surface2); cursor: pointer; transition: all 0.15s;
+  font-size: 12px; font-weight: 600; color: var(--text2); flex-shrink: 0;
+}
+.voice-toggle.on { background: var(--primary); color: #fff; border-color: var(--primary); }
+.resume-notice { font-size: 12px; color: var(--success); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+
+.setup-footer { margin-top: 0.5rem; }
+.setup-summary { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
