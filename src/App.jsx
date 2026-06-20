@@ -14,6 +14,8 @@ import ResultsPage    from './pages/ResultsPage.jsx'
 import HistoryPage    from './pages/HistoryPage.jsx'
 import PricingPage    from './pages/PricingPage.jsx'
 import LeaderboardPage from './pages/LeaderboardPage.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
+import AboutPage   from './pages/AboutPage.jsx'
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
@@ -39,6 +41,8 @@ export default function App() {
       <Navbar />
       <Routes>
         {/* Public */}
+        <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+        <Route path="/about" element={<AboutPage />} /> 
         <Route path="/" element={<LandingPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/auth" element={

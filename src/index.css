@@ -203,3 +203,21 @@ textarea { resize: vertical; min-height: 130px; line-height: 1.7; }
   .page-wrap-sm { padding: 1rem; }
   .card { padding: 1rem; }
 }
+/* ── Theme: Dark ── */
+[data-theme="dark"] {
+  --bg: #0F1117; --surface: #181B24; --surface2: #20242F;
+  --text: #F1F2F6; --text2: #A6ACBE; --text3: #6E7384;
+  --border: #2A2E3A; --border2: #383E4D;
+}
+
+/* ── Theme: Purple Haze ── */
+[data-theme="purple"] {
+  --bg: #F5F0FF; --surface: #FFFFFF; --primary: #7C3AED;
+  --primary-light: #EDE4FF; --primary-dark: #5B21B6;
+}
+
+/* ── Theme: Ocean Blue ── */
+[data-theme="ocean"] {
+  --bg: #EFF8FF; --surface: #FFFFFF; --primary: #0284C7;
+  --primary-light: #DBEEFE; --primary-dark: #075985;
+}

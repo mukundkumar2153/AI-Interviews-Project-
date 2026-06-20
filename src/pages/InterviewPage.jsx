@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../utils/supabase.js'
 import { useAuth } from '../contexts/AuthContext.jsx'
-import { generateQuestions, evaluateAnswer } from '../utils/gemini.js'
+import ProctoringCamera from '../components/ProctoringCamera.jsx'
+import { generateQuestions, evaluateAnswer } from '../utils/groq.js'
 import { Mic, MicOff, Volume2, SkipForward, ChevronRight, AlertCircle, Clock } from 'lucide-react'
 import './InterviewPage.css'
 
@@ -21,6 +22,7 @@ export default function InterviewPage() {
   const [sessionId, setSessionId] = useState(null)
   const [loadMsg, setLoadMsg]     = useState('AI is generating your personalized interview…')
   const [error, setError]         = useState('')
+  const [proctorViolations, setProctorViolations] = useState(0)
 
   // Voice
   const [listening, setListening] = useState(false)
@@ -185,6 +187,8 @@ export default function InterviewPage() {
       await supabase.from('interview_sessions').update({
         overall_score: avg, communication_score: comm, technical_score: tech,
         confidence_score: conf, clarity_score: clar,
+        camera_enabled: !!config.cameraMode,
+        proctoring_violations: proctorViolations,
         status: 'completed', completed_at: new Date().toISOString()
       }).eq('id', sessionId)
     }
@@ -357,6 +361,22 @@ export default function InterviewPage() {
           ))}
           <div className="iv-dot current"/>
         </div>
+      )}
+      {/* Mini progress dots */}
+      {allQAs.length > 0 && (
+        <div className="iv-dots">
+          {allQAs.map((qa, i) => (
+            <div key={i} title={`Q${i+1}: ${qa.feedback?.score || 0}/10`}
+              className={`iv-dot ${(qa.feedback?.score||0) >= 7 ? 'good' : (qa.feedback?.score||0) >= 5 ? 'ok' : (qa.feedback?.score||0) > 0 ? 'low' : 'skip'}`}
+            />
+          ))}
+          <div className="iv-dot current"/>
+        </div>
+      )}
+
+      {/* AI Camera Proctoring */}
+      {config.cameraMode && (
+        <ProctoringCamera onViolation={(n) => setProctorViolations(n)} />
       )}
     </div>
   )
