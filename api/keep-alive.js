@@ -8,7 +8,7 @@ const supabase = createClient(
 export default async function handler(req, res) {
   try {
     const { data, error } = await supabase
-      .from('YOUR_TABLE_NAME')   // apni koi bhi real table ka naam daalo
+      .from('daily_challenges')   // apni koi bhi real table ka naam daalo
       .select('*')
       .limit(1);
 
